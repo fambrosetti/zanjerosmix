@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gira Tandil 2026 · Rugby Inclusivo SIC</title>
+<meta name="description" content="Construyamos el escudo zanjero. Sumate a la campaña de bonos para que ningún jugador quede afuera de la Gira Tandil 2026 del programa Rugby Inclusivo del San Isidro Club." />
+<meta property="og:title" content="Gira Tandil 2026 · Rugby Inclusivo SIC" />
+<meta property="og:description" content="Sumate a la campaña Construyamos el Escudo Zanjero. 30 piezas, una experiencia que cambia vidas." />
+<meta property="og:type" content="website" />
+<style>
+:root {
+  --navy: #1F4E79;
+  --navy-dark: #143655;
+  --cyan: #1FA9DB;
+  --cyan-light: #C6E9F5;
+  --black-shield: #1A1A1A;
+  --grey-shield: #E6E6E6;
+  --light-blue: #D9E2F3;
+  --bg: #ffffff;
+  --bg-alt: #F7F8FA;
+  --text: #1a1a1a;
+  --text-muted: #5F5E5A;
+  --border: #e5e5e5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === NAV === */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+.nav-logo .accent { color: var(--cyan); }
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-cta {
+  background: var(--cyan);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--navy); text-decoration: none; }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-links.cta-only { display: flex; }
+  .nav-links.cta-only li:not(:last-child) { display: none; }
+}
+
+/* === HERO === */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+  color: white;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.hero h1 .cyan { color: var(--cyan); }
+.hero p.subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.hero-stats {
+  display: flex;
+  gap: 24px;
+  margin: 24px 0 32px;
+}
+.hero-stat {
+  border-left: 3px solid var(--cyan);
+  padding-left: 14px;
+}
+.hero-stat .num {
+  font-size: 28px;
+  font-weight: 700;
+  display: block;
+}
+.hero-stat .label {
+  font-size: 12px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.hero-cta {
+  display: inline-block;
+  background: var(--cyan);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s, background 0.2s;
+}
+.hero-cta:hover {
+  background: white;
+  color: var(--navy);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+.hero-cta-secondary {
+  display: inline-block;
+  color: white;
+  padding: 14px 24px;
+  margin-left: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  transition: border-color 0.2s;
+}
+.hero-cta-secondary:hover { border-color: white; text-decoration: none; }
+
+.hero-shield {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .hero { padding: 60px 24px 40px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .hero-shield { order: -1; }
+  .hero-stats { justify-content: center; }
+  .hero h1 { font-size: 36px; }
+}
+
+/* === SECTIONS === */
+section { padding: 80px 24px; }
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.section-intro {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  section { padding: 60px 24px; }
+  .section-title { font-size: 28px; }
+}
+
+/* === SOBRE EL PROGRAMA === */
+.pilares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.pilar {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pilar:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+.pilar-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--cyan-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.pilar h3 {
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.pilar p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .pilares { grid-template-columns: 1fr; }
+}
+
+/* === GIRA === */
+.gira-section { background: var(--bg-alt); }
+.gira-content {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.gira-card {
+  background: white;
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.gira-info {
+  display: grid;
+  gap: 16px;
+}
+.gira-info-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.gira-info-row:last-child { border: none; padding-bottom: 0; }
+.gira-info-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--light-blue);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+.gira-info-text strong {
+  display: block;
+  color: var(--navy);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.gira-info-text span {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+@media (max-width: 900px) {
+  .gira-content { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* === CAMPAÑA === */
+.campana-section { background: var(--navy); color: white; }
+.campana-section .section-title { color: white; }
+.campana-section .section-intro { color: rgba(255,255,255,0.85); }
+.campana-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.campana-mecanica {
+  display: grid;
+  gap: 14px;
+}
+.mecanica-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.step-num {
+  background: var(--cyan);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.step-text {
+  padding-top: 4px;
+}
+.step-text strong { display: block; margin-bottom: 2px; }
+.step-text span { color: rgba(255,255,255,0.8); font-size: 14px; }
+
+.progress-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 32px;
+}
+.progress-num {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1;
+}
+.progress-label {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+.progress-bar {
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  height: 12px;
+  overflow: hidden;
+  margin: 16px 0 8px;
+}
+.progress-fill {
+  background: linear-gradient(90deg, var(--cyan), #fff);
+  height: 100%;
+  transition: width 0.4s;
+}
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.8;
+}
+@media (max-width: 900px) {
+  .campana-content { grid-template-columns: 1fr; }
+}
+
+/* === ESCUDO INTERACTIVO === */
+.escudo-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.escudo-svg {
+  max-width: 360px;
+  width: 100%;
+}
+.piece {
+  cursor: pointer;
+  transition: opacity 0.2s, filter 0.2s;
+}
+.piece:hover {
+  filter: brightness(1.15);
+}
+.piece-label {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  pointer-events: none;
+}
+.escudo-info h3 {
+  font-size: 22px;
+  color: var(--navy);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.escudo-info p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.escudo-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+.escudo-legend .dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: -3px;
+}
+@media (max-width: 900px) {
+  .escudo-grid { grid-template-columns: 1fr; text-align: center; }
+  .escudo-svg { margin: 0 auto; }
+  .escudo-legend { justify-content: center; }
+}
+
+/* === DONANTES === */
+.donors-section { background: var(--bg-alt); }
+.donors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 32px;
+}
+.donor-chip {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+.donor-num {
+  background: var(--navy);
+  color: white;
+  font-weight: 700;
+  font-size: 11px;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.donor-num.cyan { background: var(--cyan); }
+.donor-name {
+  font-weight: 500;
+  color: var(--text);
+}
+.empty-donors {
+  background: white;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 32px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: 32px;
+}
+
+/* === CONTACTO === */
+.contacto-section { background: var(--navy); color: white; padding-bottom: 100px; }
+.contacto-section .section-title { color: white; }
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 32px;
+}
+.contacto-info p { margin-bottom: 16px; opacity: 0.9; }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+.contact-icon {
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.contact-item a { color: white; }
+.contact-form {
+  background: white;
+  color: var(--text);
+  padding: 32px;
+  border-radius: 14px;
+}
+.contact-form h3 {
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.form-row { margin-bottom: 14px; }
+.form-row label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--navy);
+}
+.form-row input, .form-row textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+.form-row input:focus, .form-row textarea:focus {
+  outline: none;
+  border-color: var(--cyan);
+}
+.form-row textarea { min-height: 90px; resize: vertical; }
+.form-submit {
+  background: var(--navy);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+}
+.form-submit:hover { background: var(--cyan); }
+@media (max-width: 768px) {
+  .contacto-grid { grid-template-columns: 1fr; }
+}
+
+/* === FOOTER === */
+footer {
+  background: #0e1a26;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 13px;
+}
+footer .hashtag { color: var(--cyan); font-weight: 700; }
+
+/* === MODAL === */
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+}
+.modal-bg.active { display: flex; }
+.modal {
+  background: white;
+  border-radius: 14px;
+  padding: 32px;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.modal h3 { color: var(--navy); margin-bottom: 6px; font-size: 22px; }
+.modal .subtitle { color: var(--text-muted); margin-bottom: 24px; font-size: 14px; }
+.pay-option {
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.pay-option:hover { border-color: var(--cyan); background: var(--bg-alt); }
+.pay-option h4 {
+  color: var(--navy);
+  margin-bottom: 4px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pay-option p { font-size: 13px; color: var(--text-muted); }
+.pay-option .alias-box {
+  background: var(--bg-alt);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  display: none;
+  word-break: break-all;
+}
+.pay-option.expanded .alias-box { display: block; }
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--bg-alt);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-muted);
+}
+.modal-close:hover { background: var(--border); }
+.modal-wrap { position: relative; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Rugby Inclusivo <span class="accent">SIC</span></a>
+    <ul class="nav-links cta-only">
+      <li><a href="#programa">El programa</a></li>
+      <li><a href="#gira">La gira</a></li>
+      <li><a href="#campana">La campaña</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#" class="nav-cta" onclick="openModal();return false;">Sumate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Construyamos el <span class="cyan">escudo zanjero</span> entre todos</h1>
+      <p class="subtitle">Sumate con una <strong>pieza del escudo ($100.000)</strong> o un <strong>ladrillo zanjero ($25.000)</strong>. Cada aporte cuenta. Cada nombre queda en el escudo o en la pared de ladrillos.<br/>Para que ningún jugador quede afuera de la Gira Tandil 2026.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="num" id="hero-vendidas">0</span>
+          <span class="label">Aportes</span>
+        </div>
+        <div class="hero-stat">
+          <span class="num" id="hero-recaudado">$0</span>
+          <span class="label">Recaudado</span>
+        </div>
+        <div class="hero-stat">
+          <span class="num" id="hero-pct">0%</span>
+          <span class="label">de la meta</span>
+        </div>
+      </div>
+      <a href="#" class="hero-cta" onclick="openModal();return false;">Quiero colaborar</a>
+      <a href="#programa" class="hero-cta-secondary">Conocer el programa →</a>
+    </div>
+    <div class="hero-shield">
+      <svg viewBox="0 0 220 290" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 320px;">
+        <defs>
+          <clipPath id="shield-clip-hero">
+            <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#shield-clip-hero)">
+          <rect x="0" y="0" width="220" height="290" fill="#fff"/>
+          <g id="hero-pieces"></g>
+          <text id="hero-zanjeros" x="110" y="138" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" letter-spacing="0.5" pointer-events="none" fill="#5F5E5A">ZANJEROS</text>
+          <text id="hero-mix" x="110" y="178" text-anchor="middle" font-family="Helvetica" font-size="11" font-weight="bold" pointer-events="none" fill="#5F5E5A">MIX</text>
+        </g>
+        <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z" fill="none" stroke="#1A1A1A" stroke-width="3"/>
+        <ellipse cx="110" cy="30" rx="36" ry="17" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/>
+        <line x1="85" y1="30" x2="135" y2="30" stroke="#1A1A1A" stroke-width="1.5"/>
+        <line x1="100" y1="22" x2="100" y2="38" stroke="#1A1A1A" stroke-width="1"/>
+        <line x1="110" y1="20" x2="110" y2="40" stroke="#1A1A1A" stroke-width="1"/>
+        <line x1="120" y1="22" x2="120" y2="38" stroke="#1A1A1A" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE EL PROGRAMA -->
+<section id="programa">
+  <div class="section-inner">
+    <p class="section-eyebrow">Sobre el programa</p>
+    <h2 class="section-title">Mucho más que un viaje</h2>
+    <p class="section-intro">Rugby Inclusivo del San Isidro Club reúne todos los sábados a 23 jugadores con distintas discapacidades junto a 10 facilitadores. Es nuestro quinto año. Ya viajamos a Mar del Plata (x2) y Rosario. Ahora vamos por Tandil.</p>
+    <div class="pilares">
+      <div class="pilar">
+        <div class="pilar-icon">🏉</div>
+        <h3>Deportivo</h3>
+        <p>Encuentros entre clubes, valores del SIC en el campo, trabajo en equipo y disfrute del juego.</p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-icon">🤝</div>
+        <h3>Social</h3>
+        <p>Integración, convivencia, vínculos entre familias y construcción de nuevas comunidades.</p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-icon">💪</div>
+        <h3>Formativo</h3>
+        <p>Autonomía cotidiana, responsabilidad grupal, y la oportunidad de salir de la zona de confort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LA GIRA -->
+<section class="gira-section" id="gira">
+  <div class="section-inner">
+    <div class="gira-content">
+      <div>
+        <p class="section-eyebrow">La gira</p>
+        <h2 class="section-title">Tandil 2026</h2>
+        <p class="section-intro">Tres días de actividades deportivas, convivencia y experiencias que cambian vidas. Nos recibe Uncas Rugby Club y nos alojamos en Villa Pinar de las Sierras, un predio privado de 7 hectáreas.</p>
+      </div>
+      <div class="gira-card">
+        <div class="gira-info">
+          <div class="gira-info-row">
+            <div class="gira-info-icon">📅</div>
+            <div class="gira-info-text">
+              <strong>Fechas</strong>
+              <span>Viernes 16 al domingo 18 de octubre de 2026</span>
+            </div>
+          </div>
+          <div class="gira-info-row">
+            <div class="gira-info-icon">📍</div>
+            <div class="gira-info-text">
+              <strong>Destino</strong>
+              <span>Tandil, Provincia de Buenos Aires</span>
+            </div>
+          </div>
+          <div class="gira-info-row">
+            <div class="gira-info-icon">🏠</div>
+            <div class="gira-info-text">
+              <strong>Alojamiento</strong>
+              <span>Villa Pinar de las Sierras</span>
+            </div>
+          </div>
+          <div class="gira-info-row">
+            <div class="gira-info-icon">🏉</div>
+            <div class="gira-info-text">
+              <strong>Club anfitrión</strong>
+              <span>Uncas Rugby Club</span>
+            </div>
+          </div>
+          <div class="gira-info-row">
+            <div class="gira-info-icon">🚌</div>
+            <div class="gira-info-text">
+              <strong>Equipo que viaja</strong>
+              <span>23 jugadores + 10 facilitadores</span>
+            </div>
+          </div>
+          <div class="gira-info-row">
+            <div class="gira-info-icon">⛰️</div>
+            <div class="gira-info-text">
+              <strong>Actividad especial</strong>
+              <span>Operación Cerro El Centinela</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LA CAMPAÑA -->
+<section class="campana-section" id="campana">
+  <div class="section-inner">
+    <p class="section-eyebrow" style="color: var(--cyan);">La campaña</p>
+    <h2 class="section-title">Dos formas de sumarte</h2>
+    <p class="section-intro">Una para quienes quieren su pieza propia en el escudo. Otra para sumar un ladrillo a la pared de quienes hacen posible la gira. Ambas suman.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 56px;">
+      <div style="background: rgba(31, 169, 219, 0.12); border: 1.5px solid var(--cyan); border-radius: 14px; padding: 28px;">
+        <div style="font-size: 13px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px;">Tier principal</div>
+        <h3 style="font-size: 26px; margin-bottom: 8px;">Pieza del escudo</h3>
+        <div style="font-size: 38px; font-weight: 700; color: var(--cyan); margin-bottom: 16px;">$100.000</div>
+        <p style="font-size: 14px; opacity: 0.9; margin-bottom: 16px;">Te quedás con una de las <strong>30 piezas</strong> del escudo. Tu nombre se pinta sobre ella. Te llega el certificado personalizado.</p>
+        <ul style="list-style: none; font-size: 14px; opacity: 0.9; padding-left: 0;">
+          <li style="padding: 4px 0;">✓ Tu pieza propia en el escudo</li>
+          <li style="padding: 4px 0;">✓ Certificado personalizado por mail</li>
+          <li style="padding: 4px 0;">✓ Mención en redes y evento de cierre</li>
+        </ul>
+      </div>
+      <div style="background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 14px; padding: 28px;">
+        <div style="font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px;">Tier abierto</div>
+        <h3 style="font-size: 26px; margin-bottom: 8px;">Ladrillo zanjero</h3>
+        <div style="font-size: 38px; font-weight: 700; margin-bottom: 16px;">$25.000</div>
+        <p style="font-size: 14px; opacity: 0.9; margin-bottom: 16px;">Sin tope. Cualquiera puede sumar un ladrillo y aparece en la <strong>pared zanjera</strong> debajo del escudo. Para amigos, vecinos y familia.</p>
+        <ul style="list-style: none; font-size: 14px; opacity: 0.9; padding-left: 0;">
+          <li style="padding: 4px 0;">✓ Tu nombre en la pared zanjera</li>
+          <li style="padding: 4px 0;">✓ Sin límite de cantidad</li>
+          <li style="padding: 4px 0;">✓ Reconocimiento en el evento de cierre</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-size: 22px; margin-bottom: 24px; text-align: center;">¿Cómo se hace?</h3>
+    <div class="campana-content">
+      <div class="campana-mecanica">
+        <div class="mecanica-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <strong>Elegís pieza o ladrillo.</strong>
+            <span>Pieza del escudo ($100K) o ladrillo zanjero ($25K). O las dos.</span>
+          </div>
+        </div>
+        <div class="mecanica-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong>Aportás por MercadoPago o transferencia.</strong>
+            <span>Cualquier medio, lo que te quede más cómodo.</span>
+          </div>
+        </div>
+        <div class="mecanica-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <strong>Tu nombre queda visible.</strong>
+            <span>En una pieza del escudo o en la pared zanjera, según el aporte.</span>
+          </div>
+        </div>
+        <div class="mecanica-step">
+          <div class="step-num">4</div>
+          <div class="step-text">
+            <strong>Recibís el certificado.</strong>
+            <span>Por mail/WhatsApp con tu aporte registrado.</span>
+          </div>
+        </div>
+      </div>
+      <div class="progress-card">
+        <div class="progress-num" id="progress-num">$0</div>
+        <p class="progress-label">recaudado de $3.000.000</p>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-meta">
+          <span><strong id="progress-vendidas">0</strong> de 30 piezas vendidas</span>
+          <span id="progress-pct">0%</span>
+        </div>
+        <a href="#" onclick="openModal();return false;" style="display: block; text-align: center; background: var(--cyan); color: white; padding: 12px; border-radius: 8px; margin-top: 20px; font-weight: 600;">Sumá tu pieza</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESCUDO INTERACTIVO -->
+<section id="escudo">
+  <div class="section-inner">
+    <div class="escudo-grid">
+      <svg class="escudo-svg" viewBox="0 0 220 290" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="shield-clip-main">
+            <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#shield-clip-main)">
+          <rect x="0" y="0" width="220" height="290" fill="#F8F8F8"/>
+          <g id="main-pieces"></g>
+          <text id="main-zanjeros" x="110" y="138" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" letter-spacing="0.5" pointer-events="none" fill="#5F5E5A">ZANJEROS</text>
+          <text id="main-mix" x="110" y="178" text-anchor="middle" font-family="Helvetica" font-size="11" font-weight="bold" pointer-events="none" fill="#5F5E5A">MIX</text>
+        </g>
+        <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z" fill="none" stroke="#1A1A1A" stroke-width="3"/>
+        <ellipse cx="110" cy="30" rx="36" ry="17" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/>
+        <line x1="85" y1="30" x2="135" y2="30" stroke="#1A1A1A" stroke-width="1.5"/>
+        <line x1="100" y1="22" x2="100" y2="38" stroke="#1A1A1A" stroke-width="1"/>
+        <line x1="110" y1="20" x2="110" y2="40" stroke="#1A1A1A" stroke-width="1"/>
+        <line x1="120" y1="22" x2="120" y2="38" stroke="#1A1A1A" stroke-width="1"/>
+      </svg>
+      <div class="escudo-info">
+        <p class="section-eyebrow">El escudo en vivo</p>
+        <h3>Cada pieza es un aporte concreto</h3>
+        <p>Pasá el mouse o tocá las piezas para ver el nombre del donante. Las grises todavía están disponibles. Las negras y celestes son piezas vendidas.</p>
+        <div class="escudo-legend">
+          <span><span class="dot" style="background: #1A1A1A;"></span>Pieza vendida</span>
+          <span><span class="dot" style="background: #1FA9DB;"></span>Banda central</span>
+          <span><span class="dot" style="background: #E6E6E6;"></span>Disponible</span>
+        </div>
+        <a href="#" onclick="openModal();return false;" style="display: inline-block; background: var(--cyan); color: white; padding: 14px 28px; border-radius: 8px; font-weight: 600;">Comprar mi pieza</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONANTES -->
+<section class="donors-section" id="donantes">
+  <div class="section-inner">
+    <p class="section-eyebrow">Lo que se va armando</p>
+    <h2 class="section-title">Los que ya se sumaron</h2>
+    <p class="section-intro">Quienes ya aportaron al escudo zanjero. Gracias por ser parte de esta historia.</p>
+
+    <h3 style="font-size: 18px; color: var(--navy); margin-bottom: 16px; font-weight: 700;">🛡️ Piezas del escudo</h3>
+    <div id="donors-container"></div>
+
+    <h3 style="font-size: 18px; color: var(--navy); margin-top: 48px; margin-bottom: 16px; font-weight: 700;">🧱 La pared zanjera</h3>
+    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Los ladrillos que sostienen el escudo. Sin límite, sin orden — todos al mismo nivel.</p>
+    <div id="ladrillos-container"></div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto-section" id="contacto">
+  <div class="section-inner">
+    <p class="section-eyebrow" style="color: var(--cyan);">Contacto</p>
+    <h2 class="section-title">¿Tenés dudas? Escribinos</h2>
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <p>Estamos a disposición para resolver cualquier consulta sobre la campaña, la gira o el programa de Rugby Inclusivo del SIC.</p>
+        <div class="contact-item">
+          <div class="contact-icon">👤</div>
+          <span>Federico Ambrosetti · Coordinador</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <a href="mailto:fambrosetti@centralctl.com">fambrosetti@centralctl.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <a href="https://wa.me/5491165672939" target="_blank">+54 9 11 6567-2939</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🏉</div>
+          <span>San Isidro Club · Monroe 404</span>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleContactSubmit(event)">
+        <h3>Mandanos un mensaje</h3>
+        <div class="form-row">
+          <label>Tu nombre</label>
+          <input type="text" name="nombre" required />
+        </div>
+        <div class="form-row">
+          <label>Email o WhatsApp</label>
+          <input type="text" name="contacto" required />
+        </div>
+        <div class="form-row">
+          <label>Tu mensaje</label>
+          <textarea name="mensaje" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>SIC Rugby Inclusivo · Gira Tandil 2026</p>
+  <p class="hashtag">#VamosZanja</p>
+</footer>
+
+<!-- MODAL: SUMARSE -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal-wrap">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">×</button>
+      <h3>Sumate a la campaña</h3>
+      <p class="subtitle">Elegí tu aporte y cómo querés pagarlo.</p>
+
+      <!-- Selector de monto -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+        <div class="tier-pick" data-tier="pieza" onclick="pickTier('pieza')" style="border: 2px solid var(--cyan); background: rgba(31,169,219,0.08); border-radius: 10px; padding: 14px; cursor: pointer; transition: all 0.2s;">
+          <div style="font-size: 11px; color: var(--cyan); font-weight: 700; text-transform: uppercase;">Pieza del escudo</div>
+          <div style="font-size: 22px; font-weight: 700; color: var(--navy); margin-top: 4px;">$100.000</div>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">1 de 30 piezas</div>
+        </div>
+        <div class="tier-pick" data-tier="ladrillo" onclick="pickTier('ladrillo')" style="border: 2px solid var(--border); background: white; border-radius: 10px; padding: 14px; cursor: pointer; transition: all 0.2s;">
+          <div style="font-size: 11px; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Ladrillo zanjero</div>
+          <div style="font-size: 22px; font-weight: 700; color: var(--navy); margin-top: 4px;">$25.000</div>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">sin límite</div>
+        </div>
+      </div>
+
+      <div class="pay-option" onclick="this.classList.toggle('expanded')">
+        <h4>💳 MercadoPago</h4>
+        <p>Pagá con tarjeta, dinero en cuenta o transferencia. El más rápido.</p>
+        <div class="alias-box">
+          <a id="mp-link-pieza" href="https://link.mercadopago.com.ar/zanjerostandil2026" target="_blank" style="display: block; text-align: center; background: #1FA9DB; color: white; padding: 12px; border-radius: 6px; font-weight: 600; text-decoration: none;">Abrir MercadoPago →</a>
+          <p style="margin-top: 10px; font-size: 12px; color: var(--text-muted); font-family: inherit;">
+            ⚠️ El admin tiene que crear dos links de pago en MercadoPago ($100.000 y $25.000) y reemplazarlos en el código (variables MP_LINK_PIEZA y MP_LINK_LADRILLO).
+          </p>
+        </div>
+      </div>
+
+      <div class="pay-option" onclick="this.classList.toggle('expanded')">
+        <h4>🏦 Transferencia bancaria</h4>
+        <p>Transferencia al alias del programa.</p>
+        <div class="alias-box">
+          <strong>Alias:</strong> RUGBY.INCLUSIVO.SIC<br/>
+          <strong>CBU:</strong> (a completar)<br/>
+          <strong>Titular:</strong> (a completar)<br/>
+          <strong>CUIT:</strong> (a completar)<br/>
+          <strong>Monto:</strong> <span id="alias-monto">$100.000</span><br/><br/>
+          Después de transferir, mandanos un WhatsApp a <a href="https://wa.me/5491165672939">+54 9 11 6567-2939</a> con el comprobante y tu nombre para que te registremos.
+        </div>
+      </div>
+
+      <p style="font-size: 12px; color: var(--text-muted); margin-top: 20px; text-align: center;">
+        Cada aporte queda registrado y vas a recibir un certificado personalizado.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+// === CONFIG ===
+const BLUE_PIECES = new Set([2, 7, 12, 17, 22, 27]); // columna central
+const TOTAL_PIECES = 30;
+const PIECE_VALUE = 100000;
+const LADRILLO_VALUE = 25000;
+const COLS = 5, ROWS = 6;
+const PIECE_W = 34, PIECE_H = 42;
+const START_X = 25, START_Y = 28;
+
+// === LINKS DE MERCADOPAGO (reemplazar con los reales) ===
+const MP_LINK_PIEZA    = "https://link.mercadopago.com.ar/zanjerostandil2026";   // $100.000
+const MP_LINK_LADRILLO = "https://link.mercadopago.com.ar/zanjerosladrillo";    // $25.000
+
+// === DONANTES — EDITAR PARA ACTUALIZAR LA WEB ===
+const DONORS = {
+  // Piezas del escudo. Formato: numero_pieza (1-30): "Nombre"
+  pieces: {
+    // 1: "Familia García",
+    // 5: "Ferretería Don Carlos",
+  },
+  // Ladrillos zanjeros. Sin tope, en orden.
+  ladrillos: [
+    // "Juan Pérez",
+    // "Familia Martínez",
+    // "Empresa X SA",
+  ]
+};
+let currentTier = 'pieza';
+
+// === Render escudo ===
+function renderShield(svgId, pieceContainerId, zanjerosId, mixId) {
+  const g = document.getElementById(pieceContainerId);
+  g.innerHTML = '';
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const idx = r * COLS + c;
+      const x = START_X + c * PIECE_W;
+      const y = START_Y + r * PIECE_H;
+      const num = idx + 1;
+      const donor = DONORS.pieces[num];
+      const isBlue = BLUE_PIECES.has(idx);
+      let fill = '#E6E6E6';
+      if (donor) fill = isBlue ? '#1FA9DB' : '#1A1A1A';
+
+      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute('x', x);
+      rect.setAttribute('y', y);
+      rect.setAttribute('width', PIECE_W);
+      rect.setAttribute('height', PIECE_H);
+      rect.setAttribute('fill', fill);
+      rect.setAttribute('stroke', '#fff');
+      rect.setAttribute('stroke-width', '1.2');
+      rect.setAttribute('class', 'piece');
+      const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+      title.textContent = donor ? `Pieza #${num} – ${donor}` : `Pieza #${num} – Disponible`;
+      rect.appendChild(title);
+      g.appendChild(rect);
+
+      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', x + PIECE_W/2);
+      label.setAttribute('y', y + PIECE_H/2 + 4);
+      label.setAttribute('text-anchor', 'middle');
+      label.setAttribute('class', 'piece-label');
+      label.setAttribute('fill', donor ? '#fff' : '#5F5E5A');
+      label.textContent = num;
+      label.style.pointerEvents = 'none';
+      g.appendChild(label);
+    }
+  }
+
+  const soldCount = Object.keys(DONORS.pieces).length;
+  document.getElementById(zanjerosId).setAttribute('fill', soldCount >= 10 ? '#fff' : '#5F5E5A');
+  document.getElementById(mixId).setAttribute('fill', soldCount >= 15 ? '#fff' : '#5F5E5A');
+}
+
+function renderDonors() {
+  // Piezas del escudo
+  const wrap = document.getElementById('donors-container');
+  const entries = Object.entries(DONORS.pieces)
+    .map(([num, name]) => ({ num: parseInt(num), name }))
+    .sort((a, b) => a.num - b.num);
+
+  if (entries.length === 0) {
+    wrap.innerHTML = '<div class="empty-donors">Todavía no se vendió ninguna pieza. <a href="#" onclick="openModal();return false;">Sé el primero en sumarte</a>.</div>';
+  } else {
+    let html = '<div class="donors-grid">';
+    entries.forEach(e => {
+      const isBlue = BLUE_PIECES.has(e.num - 1);
+      html += `<div class="donor-chip">
+        <div class="donor-num ${isBlue ? 'cyan' : ''}">${e.num}</div>
+        <div class="donor-name">${escapeHtml(e.name)}</div>
+      </div>`;
+    });
+    html += '</div>';
+    wrap.innerHTML = html;
+  }
+
+  // Ladrillos zanjeros — pared visual
+  const lwrap = document.getElementById('ladrillos-container');
+  if (DONORS.ladrillos.length === 0) {
+    lwrap.innerHTML = '<div class="empty-donors">Todavía nadie aportó un ladrillo. <a href="#" onclick="openModal();return false;">Sumá el primero por $25.000</a>.</div>';
+  } else {
+    lwrap.innerHTML = renderBrickWall(DONORS.ladrillos);
+  }
+}
+
+// Genera SVG con pared de ladrillos staggered.
+// Cada ladrillo es un rect color terracota con el nombre del donante.
+function renderBrickWall(names) {
+  const BRICKS_PER_ROW = 6;
+  const BRICK_W = 130;
+  const BRICK_H = 38;
+  const GAP = 3;
+  const PAD = 10;
+  const totalRows = Math.ceil(names.length / BRICKS_PER_ROW);
+  const svgW = BRICKS_PER_ROW * (BRICK_W + GAP) + PAD * 2;
+  const svgH = totalRows * (BRICK_H + GAP) + PAD * 2;
+  let bricks = '';
+  names.forEach((name, idx) => {
+    const row = Math.floor(idx / BRICKS_PER_ROW);
+    const col = idx % BRICKS_PER_ROW;
+    // Offset cada 2 filas para look de pared real
+    const offsetX = (row % 2 === 1) ? (BRICK_W + GAP) / 2 : 0;
+    const x = PAD + col * (BRICK_W + GAP) + offsetX;
+    const y = PAD + row * (BRICK_H + GAP);
+    // Si el offset pone el ladrillo fuera del lado derecho, no hay problema (overflow OK)
+    const color = (idx % 3 === 0) ? '#6B3F26' : (idx % 3 === 1) ? '#8B5A3C' : '#7A4A30';
+    const safeName = escapeHtml(name);
+    bricks += `
+      <g>
+        <rect x="${x}" y="${y}" width="${BRICK_W}" height="${BRICK_H}" fill="${color}" stroke="#3D2415" stroke-width="1" rx="2"/>
+        <text x="${x + BRICK_W/2}" y="${y + BRICK_H/2 + 4}" text-anchor="middle" font-size="12" font-weight="500" fill="#fff">${safeName.length > 18 ? safeName.slice(0,17) + '…' : safeName}</text>
+      </g>
+    `;
+  });
+  return `
+    <div style="background: #3D2415; padding: 8px; border-radius: 10px; overflow: hidden;">
+      <svg viewBox="0 0 ${svgW} ${svgH}" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">
+        ${bricks}
+      </svg>
+    </div>
+    <p style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 12px;">
+      ${names.length} ladrillo${names.length > 1 ? 's' : ''} · $${(names.length * 25000).toLocaleString('es-AR')} aportados a la pared
+    </p>
+  `;
+}
+
+function renderStats() {
+  const piecesSold = Object.keys(DONORS.pieces).length;
+  const ladrillos = DONORS.ladrillos.length;
+  const recaudadoPiezas = piecesSold * PIECE_VALUE;
+  const recaudadoLadrillos = ladrillos * LADRILLO_VALUE;
+  const recaudadoTotal = recaudadoPiezas + recaudadoLadrillos;
+  const meta = TOTAL_PIECES * PIECE_VALUE;
+  const pct = Math.min(100, Math.round((recaudadoTotal / meta) * 100));
+  const recaudadoStr = '$' + recaudadoTotal.toLocaleString('es-AR');
+
+  document.getElementById('hero-vendidas').textContent = piecesSold + (ladrillos > 0 ? '+' + ladrillos : '');
+  document.getElementById('hero-recaudado').textContent = recaudadoStr;
+  document.getElementById('hero-pct').textContent = pct + '%';
+  document.getElementById('progress-num').textContent = recaudadoStr;
+  document.getElementById('progress-vendidas').textContent = piecesSold + ' piezas · ' + ladrillos + ' ladrillos';
+  document.getElementById('progress-pct').textContent = pct + '%';
+  document.getElementById('progress-fill').style.width = pct + '%';
+}
+
+function pickTier(tier) {
+  currentTier = tier;
+  document.querySelectorAll('.tier-pick').forEach(el => {
+    if (el.dataset.tier === tier) {
+      el.style.borderColor = 'var(--cyan)';
+      el.style.background = 'rgba(31,169,219,0.08)';
+    } else {
+      el.style.borderColor = 'var(--border)';
+      el.style.background = 'white';
+    }
+  });
+  document.getElementById('mp-link-pieza').href = tier === 'pieza' ? MP_LINK_PIEZA : MP_LINK_LADRILLO;
+  document.getElementById('mp-link-pieza').textContent = `Abrir MercadoPago · ${tier === 'pieza' ? '$100.000' : '$25.000'} →`;
+  document.getElementById('alias-monto').textContent = tier === 'pieza' ? '$100.000' : '$25.000';
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function openModal() {
+  document.getElementById('modal-bg').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-bg').classList.remove('active');
+  document.body.style.overflow = '';
+  // colapsar opciones
+  document.querySelectorAll('.pay-option').forEach(o => o.classList.remove('expanded'));
+}
+document.getElementById('modal-bg').addEventListener('click', (e) => {
+  if (e.target.id === 'modal-bg') closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const nombre = data.get('nombre');
+  const contacto = data.get('contacto');
+  const mensaje = data.get('mensaje');
+  const body = encodeURIComponent(`Hola, soy ${nombre} (${contacto}).\n\n${mensaje}`);
+  window.location.href = `mailto:fambrosetti@centralctl.com?subject=Consulta%20web%20-%20${encodeURIComponent(nombre)}&body=${body}`;
+}
+
+// === INIT ===
+renderShield('hero', 'hero-pieces', 'hero-zanjeros', 'hero-mix');
+renderShield('main', 'main-pieces', 'main-zanjeros', 'main-mix');
+renderDonors();
+renderStats();
+</script>
+
+</body>
+</html>
