@@ -675,25 +675,28 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
       <a href="#programa" class="hero-cta-secondary">Conocer el programa →</a>
     </div>
     <div class="hero-shield">
-      <svg viewBox="0 0 220 290" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 320px;">
-        <defs>
-          <clipPath id="shield-clip-hero">
-            <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z"/>
-          </clipPath>
-        </defs>
-        <g clip-path="url(#shield-clip-hero)">
-          <rect x="0" y="0" width="220" height="290" fill="#fff"/>
-          <g id="hero-pieces"></g>
-          <text id="hero-zanjeros" x="110" y="138" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" letter-spacing="0.5" pointer-events="none" fill="#5F5E5A">ZANJEROS</text>
-          <text id="hero-mix" x="110" y="178" text-anchor="middle" font-family="Helvetica" font-size="11" font-weight="bold" pointer-events="none" fill="#5F5E5A">MIX</text>
-        </g>
-        <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z" fill="none" stroke="#1A1A1A" stroke-width="3"/>
-        <ellipse cx="110" cy="30" rx="36" ry="17" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/>
-        <line x1="85" y1="30" x2="135" y2="30" stroke="#1A1A1A" stroke-width="1.5"/>
-        <line x1="100" y1="22" x2="100" y2="38" stroke="#1A1A1A" stroke-width="1"/>
-        <line x1="110" y1="20" x2="110" y2="40" stroke="#1A1A1A" stroke-width="1"/>
-        <line x1="120" y1="22" x2="120" y2="38" stroke="#1A1A1A" stroke-width="1"/>
-      </svg>
+      <div style="display: flex; flex-direction: column; align-items: center; max-width: 340px; margin: 0 auto;">
+        <svg viewBox="0 0 220 290" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 300px; display: block;">
+          <defs>
+            <clipPath id="shield-clip-hero">
+              <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z"/>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#shield-clip-hero)">
+            <rect x="0" y="0" width="220" height="290" fill="#fff"/>
+            <g id="hero-pieces"></g>
+            <text id="hero-zanjeros" x="110" y="138" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" letter-spacing="0.5" pointer-events="none" fill="#5F5E5A">ZANJEROS</text>
+            <text id="hero-mix" x="110" y="178" text-anchor="middle" font-family="Helvetica" font-size="11" font-weight="bold" pointer-events="none" fill="#5F5E5A">MIX</text>
+          </g>
+          <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z" fill="none" stroke="#1A1A1A" stroke-width="3"/>
+          <ellipse cx="110" cy="30" rx="36" ry="17" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/>
+          <line x1="85" y1="30" x2="135" y2="30" stroke="#1A1A1A" stroke-width="1.5"/>
+          <line x1="100" y1="22" x2="100" y2="38" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="110" y1="20" x2="110" y2="40" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="120" y1="22" x2="120" y2="38" stroke="#1A1A1A" stroke-width="1"/>
+        </svg>
+        <div id="hero-wall-container" style="width: 100%; max-width: 340px; margin-top: -4px;"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1144,6 +1147,39 @@ function renderDonors() {
   }
 }
 
+// Pared compacta para el hero (al lado del escudo).
+function renderHeroWall() {
+  const wrap = document.getElementById('hero-wall-container');
+  if (!wrap) return;
+  const names = DONORS.ladrillos;
+  if (names.length === 0) {
+    wrap.innerHTML = '';
+    return;
+  }
+  const BRICKS_PER_ROW = 4;
+  const BRICK_W = 78;
+  const BRICK_H = 22;
+  const GAP = 2;
+  const PAD = 6;
+  const totalRows = Math.ceil(names.length / BRICKS_PER_ROW);
+  const svgW = BRICKS_PER_ROW * (BRICK_W + GAP) + (BRICK_W + GAP) / 2 + PAD;
+  const svgH = totalRows * (BRICK_H + GAP) + PAD * 2;
+  let bricks = '';
+  names.forEach((name, idx) => {
+    const row = Math.floor(idx / BRICKS_PER_ROW);
+    const col = idx % BRICKS_PER_ROW;
+    const offsetX = (row % 2 === 1) ? (BRICK_W + GAP) / 2 : 0;
+    const x = PAD + col * (BRICK_W + GAP) + offsetX;
+    const y = PAD + row * (BRICK_H + GAP);
+    const color = (idx % 3 === 0) ? '#6B3F26' : (idx % 3 === 1) ? '#8B5A3C' : '#7A4A30';
+    const safeName = escapeHtml(name);
+    const displayName = safeName.length > 11 ? safeName.slice(0,10) + '…' : safeName;
+    bricks += `<g><rect x="${x}" y="${y}" width="${BRICK_W}" height="${BRICK_H}" fill="${color}" stroke="#3D2415" stroke-width="0.8" rx="2"/>
+      <text x="${x + BRICK_W/2}" y="${y + BRICK_H/2 + 3}" text-anchor="middle" font-size="9" font-weight="500" fill="#fff">${displayName}</text></g>`;
+  });
+  wrap.innerHTML = `<div style="background: #3D2415; padding: 6px; border-radius: 6px;"><svg viewBox="0 0 ${svgW} ${svgH}" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">${bricks}</svg></div>`;
+}
+
 // Genera SVG con pared de ladrillos staggered.
 // Cada ladrillo es un rect color terracota con el nombre del donante.
 function renderBrickWall(names) {
@@ -1256,6 +1292,7 @@ function handleContactSubmit(e) {
 // === INIT ===
 renderShield('hero', 'hero-pieces', 'hero-zanjeros', 'hero-mix');
 renderShield('main', 'main-pieces', 'main-zanjeros', 'main-mix');
+renderHeroWall();
 renderDonors();
 renderStats();
 </script>
