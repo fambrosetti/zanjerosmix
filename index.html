@@ -1098,22 +1098,22 @@ const START_X = 25, START_Y = 28;
 // === DATOS DE PAGO ===
 // Alias: rugbyinclusivo.sic · CVU: 0000003100070276935698 · Titular: San Isidro Club
 
-// === DONANTES — EDITAR PARA ACTUALIZAR LA WEB ===
-// A medida que llegan los aportes, sumarlos abajo y pushear el cambio.
+// === DONANTES ===
+// Se cargan automáticamente desde la planilla de Google Sheets (ver SHEET_CSV_URL más abajo).
+// Si no hay planilla configurada o falla la carga, el sitio muestra "vacío" en su lugar.
 const DONORS = {
-  // Padrinos Zanjeros. Máximo 4. Aportan $500.000 cada uno. Lugar de honor.
-  padrinos: [
-    // Ej: "Familia Pérez",
-  ],
-  // Piezas del escudo. Formato: numero_pieza (1-30): "Nombre"
-  pieces: {
-    // Ej: 1: "Familia García",
-  },
-  // Ladrillos zanjeros. Sin tope, en orden.
-  ladrillos: [
-    // Ej: "Andrea L.",
-  ]
+  padrinos: [],
+  pieces: {},
+  ladrillos: []
 };
+
+// === GOOGLE SHEETS — URL del CSV publicado ===
+// Cuando Fede tenga la planilla, pegar acá la URL que devuelve "Archivo → Compartir → Publicar en la web → CSV".
+// Estructura esperada de la planilla (primera fila = encabezados, exactamente estos nombres):
+//   tier | nombre | pieza_num
+// tier puede ser: padrino | pieza | ladrillo
+// pieza_num solo se completa cuando tier=pieza (número del 1 al 30).
+const SHEET_CSV_URL = ""; // <-- pegar URL acá cuando la planilla esté lista
 let currentTier = 'pieza';
 
 // === Render escudo ===
@@ -1416,13 +1416,93 @@ function handleContactSubmit(e) {
   window.location.href = `mailto:hola@zanjerosmix.com?subject=Consulta%20web%20-%20${encodeURIComponent(nombre)}&body=${body}`;
 }
 
+// === Re-render completo después de cargar datos nuevos ===
+function renderAll() {
+  renderShield('hero', 'hero-pieces', 'hero-zanjeros', 'hero-mix');
+  renderShield('main', 'main-pieces', 'main-zanjeros', 'main-mix');
+  renderHeroWall();
+  renderPadrinos();
+  renderDonors();
+  renderStats();
+}
+
+// === Parser CSV mínimo (soporta comillas y comas dentro de campos) ===
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let field = '';
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i], next = text[i+1];
+    if (inQuotes) {
+      if (c === '"' && next === '"') { field += '"'; i++; }
+      else if (c === '"') inQuotes = false;
+      else field += c;
+    } else {
+      if (c === '"') inQuotes = true;
+      else if (c === ',') { row.push(field); field = ''; }
+      else if (c === '\n' || c === '\r') {
+        if (field !== '' || row.length > 0) { row.push(field); rows.push(row); row = []; field = ''; }
+        if (c === '\r' && next === '\n') i++;
+      } else field += c;
+    }
+  }
+  if (field !== '' || row.length > 0) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+// === Carga automática de aportes desde Google Sheets ===
+async function loadDonorsFromSheet() {
+  if (!SHEET_CSV_URL || !SHEET_CSV_URL.startsWith('https://')) return;
+  try {
+    const url = SHEET_CSV_URL + (SHEET_CSV_URL.includes('?') ? '&' : '?') + '_=' + Date.now();
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Sheet HTTP ' + res.status);
+    const csv = await res.text();
+    const rows = parseCsv(csv);
+    if (rows.length < 2) return;
+
+    // Identificar índices de columnas usando la primera fila (case-insensitive, trim)
+    const header = rows[0].map(s => (s || '').trim().toLowerCase());
+    const idxTier   = header.indexOf('tier');
+    const idxNombre = header.indexOf('nombre');
+    const idxPieza  = header.indexOf('pieza_num');
+    if (idxTier < 0 || idxNombre < 0) {
+      console.warn('La planilla no tiene los encabezados esperados (tier, nombre, pieza_num).');
+      return;
+    }
+
+    const padrinos = [];
+    const pieces = {};
+    const ladrillos = [];
+
+    for (let i = 1; i < rows.length; i++) {
+      const r = rows[i];
+      const tier = (r[idxTier] || '').trim().toLowerCase();
+      const nombre = (r[idxNombre] || '').trim();
+      if (!tier || !nombre) continue;
+      if (tier === 'padrino') {
+        if (padrinos.length < 4) padrinos.push(nombre);
+      } else if (tier === 'pieza') {
+        const n = parseInt((r[idxPieza] || '').trim(), 10);
+        if (n >= 1 && n <= 30) pieces[n] = nombre;
+      } else if (tier === 'ladrillo') {
+        ladrillos.push(nombre);
+      }
+    }
+
+    DONORS.padrinos = padrinos;
+    DONORS.pieces = pieces;
+    DONORS.ladrillos = ladrillos;
+    renderAll();
+  } catch (e) {
+    console.warn('No se pudieron cargar los aportes desde la planilla:', e);
+  }
+}
+
 // === INIT ===
-renderShield('hero', 'hero-pieces', 'hero-zanjeros', 'hero-mix');
-renderShield('main', 'main-pieces', 'main-zanjeros', 'main-mix');
-renderHeroWall();
-renderPadrinos();
-renderDonors();
-renderStats();
+renderAll();
+loadDonorsFromSheet();
 </script>
 
 </body>
