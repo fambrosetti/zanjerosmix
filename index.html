@@ -8,6 +8,9 @@
 <meta property="og:title" content="Gira Tandil 2026 · Rugby Inclusivo SIC" />
 <meta property="og:description" content="Sumate a la campaña Construyamos el Escudo Zanjero. 30 piezas, una experiencia que cambia vidas." />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://zanjerosmix.com/logo.png" />
+<link rel="icon" type="image/png" href="logo.png" />
+<link rel="apple-touch-icon" href="logo.png" />
 <style>
 :root {
   --navy: #1F4E79;
@@ -54,12 +57,31 @@ a:hover { text-decoration: underline; }
   align-items: center;
 }
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 700;
   color: var(--navy);
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.3px;
+  line-height: 1.15;
 }
+.nav-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+.nav-logo .nav-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.nav-logo .nav-logo-text .brand { font-size: 14px; color: var(--navy); }
+.nav-logo .nav-logo-text .sub { font-size: 11px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; }
 .nav-logo .accent { color: var(--cyan); }
+@media (max-width: 480px) {
+  .nav-logo .nav-logo-text { display: none; }
+  .nav-logo img { height: 36px; }
+}
 .nav-links {
   display: flex;
   gap: 24px;
@@ -563,6 +585,13 @@ footer {
   padding: 32px 24px;
   font-size: 13px;
 }
+footer .footer-logo {
+  height: 80px;
+  width: auto;
+  margin: 0 auto 16px;
+  display: block;
+  filter: brightness(1.05);
+}
 footer .hashtag { color: var(--cyan); font-weight: 700; }
 
 /* === MODAL === */
@@ -640,7 +669,13 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Rugby Inclusivo <span class="accent">SIC</span></a>
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="ZanjerosMix" />
+      <span class="nav-logo-text">
+        <span class="brand">ZanjerosMix</span>
+        <span class="sub">Rugby Inclusivo · SIC</span>
+      </span>
+    </a>
     <ul class="nav-links cta-only">
       <li><a href="#programa">El programa</a></li>
       <li><a href="#gira">La gira</a></li>
@@ -983,6 +1018,7 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
 
 <!-- FOOTER -->
 <footer>
+  <img src="logo.png" alt="ZanjerosMix" class="footer-logo" />
   <p>SIC Rugby Inclusivo · Gira Tandil 2026</p>
   <p class="hashtag">#VamosZanja</p>
 </footer>
