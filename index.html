@@ -1177,7 +1177,11 @@ function renderDonors() {
   // Ladrillos zanjeros — pared visual
   const lwrap = document.getElementById('ladrillos-container');
   if (DONORS.ladrillos.length === 0) {
-    lwrap.innerHTML = '<div class="empty-donors">Todavía nadie aportó un ladrillo. <a href="#" onclick="openModal();return false;">Sumá el primero por $25.000</a>.</div>';
+    lwrap.innerHTML = renderEmptyWall(24) +
+      `<p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 14px;">
+        La pared está esperando sus primeros ladrillos.
+        <a href="#" onclick="openModal();return false;">Sumá el primero por $25.000 →</a>
+      </p>`;
   } else {
     lwrap.innerHTML = renderBrickWall(DONORS.ladrillos);
   }
@@ -1189,7 +1193,7 @@ function renderHeroWall() {
   if (!wrap) return;
   const names = DONORS.ladrillos;
   if (names.length === 0) {
-    wrap.innerHTML = '';
+    wrap.innerHTML = renderEmptyHeroWall(12);
     return;
   }
   const BRICKS_PER_ROW = 4;
@@ -1214,6 +1218,56 @@ function renderHeroWall() {
       <text x="${x + BRICK_W/2}" y="${y + BRICK_H/2 + 3}" text-anchor="middle" font-size="9" font-weight="500" fill="#fff">${displayName}</text></g>`;
   });
   wrap.innerHTML = `<div style="background: #3D2415; padding: 6px; border-radius: 6px;"><svg viewBox="0 0 ${svgW} ${svgH}" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">${bricks}</svg></div>`;
+}
+
+// Pared vacía para la sección "La pared zanjera" cuando no hay donantes todavía.
+// Renderea ladrillos "fantasma" — mismo patrón pero color suave y sin texto.
+function renderEmptyWall(count) {
+  const BRICKS_PER_ROW = 6;
+  const BRICK_W = 130;
+  const BRICK_H = 38;
+  const GAP = 3;
+  const PAD = 10;
+  const totalRows = Math.ceil(count / BRICKS_PER_ROW);
+  const svgW = BRICKS_PER_ROW * (BRICK_W + GAP) + PAD * 2;
+  const svgH = totalRows * (BRICK_H + GAP) + PAD * 2;
+  let bricks = '';
+  for (let idx = 0; idx < count; idx++) {
+    const row = Math.floor(idx / BRICKS_PER_ROW);
+    const col = idx % BRICKS_PER_ROW;
+    const offsetX = (row % 2 === 1) ? (BRICK_W + GAP) / 2 : 0;
+    const x = PAD + col * (BRICK_W + GAP) + offsetX;
+    const y = PAD + row * (BRICK_H + GAP);
+    bricks += `<g><rect x="${x}" y="${y}" width="${BRICK_W}" height="${BRICK_H}" fill="#5C4838" stroke="#3D2415" stroke-width="1" rx="2" opacity="0.55"/></g>`;
+  }
+  return `
+    <div style="background: #3D2415; padding: 8px; border-radius: 10px; overflow: hidden;">
+      <svg viewBox="0 0 ${svgW} ${svgH}" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">
+        ${bricks}
+      </svg>
+    </div>`;
+}
+
+// Pared vacía compacta para el hero. Mismo principio, escala más chica.
+function renderEmptyHeroWall(count) {
+  const BRICKS_PER_ROW = 4;
+  const BRICK_W = 78;
+  const BRICK_H = 22;
+  const GAP = 2;
+  const PAD = 6;
+  const totalRows = Math.ceil(count / BRICKS_PER_ROW);
+  const svgW = BRICKS_PER_ROW * (BRICK_W + GAP) + (BRICK_W + GAP) / 2 + PAD;
+  const svgH = totalRows * (BRICK_H + GAP) + PAD * 2;
+  let bricks = '';
+  for (let idx = 0; idx < count; idx++) {
+    const row = Math.floor(idx / BRICKS_PER_ROW);
+    const col = idx % BRICKS_PER_ROW;
+    const offsetX = (row % 2 === 1) ? (BRICK_W + GAP) / 2 : 0;
+    const x = PAD + col * (BRICK_W + GAP) + offsetX;
+    const y = PAD + row * (BRICK_H + GAP);
+    bricks += `<g><rect x="${x}" y="${y}" width="${BRICK_W}" height="${BRICK_H}" fill="#5C4838" stroke="#3D2415" stroke-width="0.8" rx="2" opacity="0.55"/></g>`;
+  }
+  return `<div style="background: #3D2415; padding: 6px; border-radius: 6px;"><svg viewBox="0 0 ${svgW} ${svgH}" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">${bricks}</svg></div>`;
 }
 
 // Genera SVG con pared de ladrillos staggered.
