@@ -1016,25 +1016,25 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
 
       <div class="pay-option" onclick="this.classList.toggle('expanded')">
         <h4>💳 MercadoPago</h4>
-        <p>Pagá con tarjeta, dinero en cuenta o transferencia. El más rápido.</p>
+        <p>Desde la app de MercadoPago, "Transferir" → "A un alias o CVU".</p>
         <div class="alias-box">
-          <a id="mp-link-pieza" href="https://link.mercadopago.com.ar/zanjerostandil2026" target="_blank" style="display: block; text-align: center; background: #1FA9DB; color: white; padding: 12px; border-radius: 6px; font-weight: 600; text-decoration: none;">Abrir MercadoPago →</a>
-          <p style="margin-top: 10px; font-size: 12px; color: var(--text-muted); font-family: inherit;">
-            ⚠️ El admin tiene que crear tres links de pago en MercadoPago ($500.000, $100.000 y $25.000) y reemplazarlos en el código (variables MP_LINK_PADRINO, MP_LINK_PIEZA y MP_LINK_LADRILLO).
-          </p>
+          <strong>Alias:</strong> rugbyinclusivo.sic<br/>
+          <strong>CVU:</strong> 0000003100070276935698<br/>
+          <strong>Titular:</strong> San Isidro Club<br/>
+          <strong>Monto:</strong> <span id="alias-monto-mp">$100.000</span><br/><br/>
+          Después de transferir, mandanos un WhatsApp a <a href="https://wa.me/5491165672939">+54 9 11 6567-2939</a> con el comprobante para que registremos tu aporte.
         </div>
       </div>
 
       <div class="pay-option" onclick="this.classList.toggle('expanded')">
         <h4>🏦 Transferencia bancaria</h4>
-        <p>Transferencia al alias del programa.</p>
+        <p>Desde tu home banking, al alias o CVU del programa.</p>
         <div class="alias-box">
-          <strong>Alias:</strong> RUGBY.INCLUSIVO.SIC<br/>
-          <strong>CBU:</strong> (a completar)<br/>
-          <strong>Titular:</strong> (a completar)<br/>
-          <strong>CUIT:</strong> (a completar)<br/>
+          <strong>Alias:</strong> rugbyinclusivo.sic<br/>
+          <strong>CVU:</strong> 0000003100070276935698<br/>
+          <strong>Titular:</strong> San Isidro Club<br/>
           <strong>Monto:</strong> <span id="alias-monto">$100.000</span><br/><br/>
-          Después de transferir, mandanos un WhatsApp a <a href="https://wa.me/5491165672939">+54 9 11 6567-2939</a> con el comprobante y tu nombre para que te registremos.
+          Después de transferir, mandanos un WhatsApp a <a href="https://wa.me/5491165672939">+54 9 11 6567-2939</a> con el comprobante y tu nombre para que registremos tu aporte.
         </div>
       </div>
 
@@ -1059,10 +1059,8 @@ const COLS = 5, ROWS = 6;
 const PIECE_W = 34, PIECE_H = 42;
 const START_X = 25, START_Y = 28;
 
-// === LINKS DE MERCADOPAGO (reemplazar con los reales) ===
-const MP_LINK_PADRINO  = "https://link.mercadopago.com.ar/zanjerospadrino";     // $500.000
-const MP_LINK_PIEZA    = "https://link.mercadopago.com.ar/zanjerostandil2026";  // $100.000
-const MP_LINK_LADRILLO = "https://link.mercadopago.com.ar/zanjerosladrillo";    // $25.000
+// === DATOS DE PAGO ===
+// Alias: rugbyinclusivo.sic · CVU: 0000003100070276935698 · Titular: San Isidro Club
 
 // === DONANTES — EDITAR PARA ACTUALIZAR LA WEB ===
 // ⚠️ DATOS DE DEMO (con prefijo "Demo"). Reemplazar por donantes reales cuando lleguen.
@@ -1310,11 +1308,9 @@ function pickTier(tier) {
     el.style.borderColor = isActive ? defaultColor.border : 'var(--border)';
     el.style.background = isActive ? defaultColor.bg : 'white';
   });
-  const links = { padrino: MP_LINK_PADRINO, pieza: MP_LINK_PIEZA, ladrillo: MP_LINK_LADRILLO };
   const montos = { padrino: '$500.000', pieza: '$100.000', ladrillo: '$25.000' };
-  document.getElementById('mp-link-pieza').href = links[tier];
-  document.getElementById('mp-link-pieza').textContent = `Abrir MercadoPago · ${montos[tier]} →`;
   document.getElementById('alias-monto').textContent = montos[tier];
+  document.getElementById('alias-monto-mp').textContent = montos[tier];
 }
 
 function escapeHtml(s) {
