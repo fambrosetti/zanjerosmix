@@ -1099,21 +1099,22 @@ const START_X = 25, START_Y = 28;
 // Alias: rugbyinclusivo.sic · CVU: 0000003100070276935698 · Titular: San Isidro Club
 
 // === DONANTES ===
-// Se cargan automáticamente desde la planilla de Google Sheets (ver SHEET_CSV_URL más abajo).
-// Si no hay planilla configurada o falla la carga, el sitio muestra "vacío" en su lugar.
+// Se cargan automáticamente desde la planilla de Google Sheets (ver SHEET_ID más abajo).
+// Si falla la carga (sin internet, planilla privada, etc.), el sitio muestra "vacío" en su lugar.
 const DONORS = {
   padrinos: [],
   pieces: {},
   ladrillos: []
 };
 
-// === GOOGLE SHEETS — URL del CSV publicado ===
-// Cuando Fede tenga la planilla, pegar acá la URL que devuelve "Archivo → Compartir → Publicar en la web → CSV".
-// Estructura esperada de la planilla (primera fila = encabezados, exactamente estos nombres):
-//   tier | nombre | pieza_num
-// tier puede ser: padrino | pieza | ladrillo
-// pieza_num solo se completa cuando tier=pieza (número del 1 al 30).
-const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1J1e4p-iZV4lTVIWTvlze5A6aqulNhMwCaQ6jstP2sas/gviz/tq?tqx=out:csv&gid=0";
+// === GOOGLE SHEETS — 3 pestañas ===
+// El sitio lee directamente de las pestañas "Padrinos", "Piezas" y "Ladrillos" de la planilla.
+// Estructura esperada en cada pestaña:
+//   - Padrinos:   columnas "numero" | "nombre"        (4 padrinos máx)
+//   - Piezas:     columnas "numero" | "nombre"        (piezas 1 a 30)
+//   - Ladrillos:  columna  "nombre"                   (sin tope)
+const SHEET_ID = "1J1e4p-iZV4lTVIWTvlze5A6aqulNhMwCaQ6jstP2sas";
+const SHEET_BASE = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:csv&sheet=";
 let currentTier = 'pieza';
 
 // === Render escudo ===
@@ -1451,44 +1452,43 @@ function parseCsv(text) {
   return rows;
 }
 
-// === Carga automática de aportes desde Google Sheets ===
-async function loadDonorsFromSheet() {
-  if (!SHEET_CSV_URL || !SHEET_CSV_URL.startsWith('https://')) return;
-  try {
-    const url = SHEET_CSV_URL + (SHEET_CSV_URL.includes('?') ? '&' : '?') + '_=' + Date.now();
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('Sheet HTTP ' + res.status);
-    const csv = await res.text();
-    const rows = parseCsv(csv);
-    if (rows.length < 2) return;
+// === Carga automática de aportes desde Google Sheets (3 pestañas) ===
+async function fetchSheet(name) {
+  const url = SHEET_BASE + encodeURIComponent(name) + '&_=' + Date.now();
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('Sheet HTTP ' + res.status + ' (' + name + ')');
+  return parseCsv(await res.text());
+}
 
-    // Identificar índices de columnas usando la primera fila (case-insensitive, trim)
-    const header = rows[0].map(s => (s || '').trim().toLowerCase());
-    const idxTier   = header.indexOf('tier');
-    const idxNombre = header.indexOf('nombre');
-    const idxPieza  = header.indexOf('pieza_num');
-    if (idxTier < 0 || idxNombre < 0) {
-      console.warn('La planilla no tiene los encabezados esperados (tier, nombre, pieza_num).');
-      return;
+async function loadDonorsFromSheet() {
+  if (!SHEET_ID) return;
+  try {
+    const [padrinosRows, piezasRows, ladrillosRows] = await Promise.all([
+      fetchSheet('Padrinos'),
+      fetchSheet('Piezas'),
+      fetchSheet('Ladrillos'),
+    ]);
+
+    // Padrinos: columna "nombre" (índice 1). 4 máximo.
+    const padrinos = [];
+    for (let i = 1; i < padrinosRows.length; i++) {
+      const nombre = (padrinosRows[i][1] || '').trim();
+      if (nombre && padrinos.length < 4) padrinos.push(nombre);
     }
 
-    const padrinos = [];
+    // Piezas: columnas "numero" (0) y "nombre" (1). Pieza_num del 1 al 30.
     const pieces = {};
-    const ladrillos = [];
+    for (let i = 1; i < piezasRows.length; i++) {
+      const num = parseInt((piezasRows[i][0] || '').trim(), 10);
+      const nombre = (piezasRows[i][1] || '').trim();
+      if (nombre && num >= 1 && num <= 30) pieces[num] = nombre;
+    }
 
-    for (let i = 1; i < rows.length; i++) {
-      const r = rows[i];
-      const tier = (r[idxTier] || '').trim().toLowerCase();
-      const nombre = (r[idxNombre] || '').trim();
-      if (!tier || !nombre) continue;
-      if (tier === 'padrino') {
-        if (padrinos.length < 4) padrinos.push(nombre);
-      } else if (tier === 'pieza') {
-        const n = parseInt((r[idxPieza] || '').trim(), 10);
-        if (n >= 1 && n <= 30) pieces[n] = nombre;
-      } else if (tier === 'ladrillo') {
-        ladrillos.push(nombre);
-      }
+    // Ladrillos: columna "nombre" (índice 0). Sin tope.
+    const ladrillos = [];
+    for (let i = 1; i < ladrillosRows.length; i++) {
+      const nombre = (ladrillosRows[i][0] || '').trim();
+      if (nombre) ladrillos.push(nombre);
     }
 
     DONORS.padrinos = padrinos;
