@@ -1405,16 +1405,17 @@ function renderStats() {
 function pickTier(tier) {
   currentTier = tier;
   const tierColors = {
-    padrino:    { border: '#E5C56B', bg: 'rgba(255,205,85,0.1)' },
-    pieza:      { border: 'var(--cyan)', bg: 'rgba(31,169,219,0.1)' },
-    ladrillo:   { border: 'var(--border)', bg: 'white' },
-    ladrillo10: { border: 'var(--border)', bg: 'white' }
+    padrino:    { border: '#E5C56B', bg: 'rgba(255,205,85,0.12)' },
+    pieza:      { border: 'var(--cyan)', bg: 'rgba(31,169,219,0.12)' },
+    ladrillo:   { border: '#7A4A30', bg: 'rgba(122,74,48,0.10)' },
+    ladrillo10: { border: '#7A4A30', bg: 'rgba(122,74,48,0.10)' }
   };
   document.querySelectorAll('.tier-pick').forEach(el => {
     const isActive = el.dataset.tier === tier;
     const defaultColor = tierColors[el.dataset.tier];
     el.style.borderColor = isActive ? defaultColor.border : 'var(--border)';
     el.style.background = isActive ? defaultColor.bg : 'white';
+    el.style.boxShadow = isActive ? '0 0 0 2px ' + defaultColor.border : 'none';
   });
   const montos = {
     padrino:    '$500.000',
