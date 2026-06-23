@@ -146,11 +146,11 @@ a:hover { text-decoration: underline; }
 }
 .hero-logo {
   width: 100%;
-  max-width: 340px;
+  max-width: 360px;
   height: auto;
   display: block;
   margin: 0 auto;
-  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.45));
 }
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; gap: 30px; }
@@ -349,6 +349,15 @@ section { padding: 80px 24px; }
 .campana-section { background: var(--navy); color: white; }
 .campana-section .section-title { color: white; }
 .campana-section .section-intro { color: rgba(255,255,255,0.85); }
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
+}
+@media (max-width: 760px) {
+  .tiers-grid { grid-template-columns: 1fr; gap: 14px; }
+}
 .campana-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -831,7 +840,7 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
     <h2 class="section-title">Vos elegís cómo.</h2>
     <p class="section-intro">La campaña se sostiene con aportes de la comunidad — familias, amigos, vecinos, ex-alumnos y empresas. Cada uno desde donde pueda.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 56px;">
+    <div class="tiers-grid">
       <div style="background: rgba(255, 200, 80, 0.12); border: 1.5px solid #FFCD55; border-radius: 14px; padding: 24px;">
         <div style="font-size: 12px; color: #FFCD55; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px;">Tier de honor · 4 lugares</div>
         <h3 style="font-size: 22px; margin-bottom: 8px;">🛡️ Padrino zanjero</h3>
