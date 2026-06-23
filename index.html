@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gira Tandil 2026 · Rugby Inclusivo SIC</title>
-<meta name="description" content="Construyamos el escudo zanjero. Sumate a la campaña de bonos para que ningún jugador quede afuera de la Gira Tandil 2026 del programa Rugby Inclusivo del San Isidro Club." />
+<meta name="description" content="Una gira que se hace entre todos. Vamos a Tandil con 35 jugadores de Rugby Inclusivo del SIC. Sumate como Padrino, Pieza o Ladrillo." />
 <meta property="og:title" content="Gira Tandil 2026 · Rugby Inclusivo SIC" />
-<meta property="og:description" content="Sumate a la campaña Construyamos el Escudo Zanjero. 30 piezas, una experiencia que cambia vidas." />
+<meta property="og:description" content="Una gira que se hace entre todos. Sumate a la campaña: Padrino, Pieza o Ladrillo." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://zanjerosmix.com/logo.png" />
 <link rel="icon" type="image/png" href="logo.png" />
@@ -111,7 +111,7 @@ a:hover { text-decoration: underline; }
 .hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
   color: white;
-  padding: 80px 24px 60px;
+  padding: 90px 24px 80px;
   position: relative;
   overflow: hidden;
 }
@@ -123,18 +123,40 @@ a:hover { text-decoration: underline; }
   gap: 60px;
   align-items: center;
 }
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
 .hero h1 {
-  font-size: 48px;
-  line-height: 1.1;
-  margin-bottom: 16px;
+  font-size: 52px;
+  line-height: 1.05;
+  margin-bottom: 22px;
   font-weight: 700;
 }
 .hero h1 .cyan { color: var(--cyan); }
 .hero p.subtitle {
-  font-size: 18px;
-  opacity: 0.9;
-  margin-bottom: 24px;
+  font-size: 19px;
+  opacity: 0.92;
+  margin-bottom: 32px;
   line-height: 1.5;
+}
+.hero-logo {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
+}
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 30px; }
+  .hero h1 { font-size: 36px; }
+  .hero p.subtitle { font-size: 16px; }
+  .hero-logo { max-width: 220px; }
 }
 .hero-stats {
   display: flex;
@@ -458,6 +480,39 @@ section { padding: 80px 24px; }
 
 /* === DONANTES === */
 .donors-section { background: var(--bg-alt); }
+.tablero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 40px 0 8px;
+}
+.tablero-stat {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 12px;
+  text-align: center;
+}
+.tablero-stat .num {
+  display: block;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.tablero-stat .label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+@media (max-width: 700px) {
+  .tablero-stats { grid-template-columns: repeat(2, 1fr); }
+  .tablero-stat .num { font-size: 28px; }
+}
 .donors-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -677,9 +732,10 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
       </span>
     </a>
     <ul class="nav-links cta-only">
-      <li><a href="#programa">El programa</a></li>
       <li><a href="#gira">La gira</a></li>
-      <li><a href="#campana">La campaña</a></li>
+      <li><a href="#colaborar">Colaborar</a></li>
+      <li><a href="#programa">ZanjerosMix</a></li>
+      <li><a href="#tablero">Cómo va</a></li>
       <li><a href="#contacto">Contacto</a></li>
       <li><a href="#" class="nav-cta" onclick="openModal();return false;">Sumate</a></li>
     </ul>
@@ -690,74 +746,14 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
 <section class="hero" id="hero">
   <div class="hero-inner">
     <div>
-      <h1>Construyamos el <span class="cyan">escudo zanjero</span> entre todos</h1>
-      <p class="subtitle">Sumate como <strong>Padrino ($500.000)</strong>, con una <strong>pieza del escudo ($100.000)</strong> o con un <strong>ladrillo zanjero ($25.000)</strong>. Cada aporte cuenta. Cada nombre queda registrado.<br/>Para que ningún jugador quede afuera de la Gira Tandil 2026.</p>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="num" id="hero-vendidas">0</span>
-          <span class="label">Aportes</span>
-        </div>
-        <div class="hero-stat">
-          <span class="num" id="hero-recaudado">$0</span>
-          <span class="label">Recaudado</span>
-        </div>
-        <div class="hero-stat">
-          <span class="num" id="hero-pct">0%</span>
-          <span class="label">de la meta</span>
-        </div>
-      </div>
-      <a href="#" class="hero-cta" onclick="openModal();return false;">Quiero colaborar</a>
-      <a href="#programa" class="hero-cta-secondary">Conocer el programa →</a>
+      <p class="hero-eyebrow">CAMPAÑA RUGBY INCLUSIVO</p>
+      <h1>Una gira que se hace <span class="cyan">entre todos</span>.</h1>
+      <p class="subtitle">Vamos a <strong>Tandil</strong> con <strong>35 jugadores</strong> de Rugby Inclusivo del SIC. Estamos recaudando para cubrir transporte, hospedaje y comidas. Cada aporte cuenta.</p>
+      <a href="#colaborar" class="hero-cta">Quiero colaborar</a>
+      <a href="#gira" class="hero-cta-secondary">Conocer la gira →</a>
     </div>
     <div class="hero-shield">
-      <div style="display: flex; flex-direction: column; align-items: center; max-width: 340px; margin: 0 auto;">
-        <svg viewBox="0 0 220 290" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 300px; display: block;">
-          <defs>
-            <clipPath id="shield-clip-hero">
-              <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z"/>
-            </clipPath>
-          </defs>
-          <g clip-path="url(#shield-clip-hero)">
-            <rect x="0" y="0" width="220" height="290" fill="#fff"/>
-            <g id="hero-pieces"></g>
-            <text id="hero-zanjeros" x="110" y="138" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" letter-spacing="0.5" pointer-events="none" fill="#5F5E5A">ZANJEROS</text>
-            <text id="hero-mix" x="110" y="178" text-anchor="middle" font-family="Helvetica" font-size="11" font-weight="bold" pointer-events="none" fill="#5F5E5A">MIX</text>
-          </g>
-          <path d="M 110 28 C 60 28, 25 50, 25 90 L 25 190 C 25 230, 60 260, 110 280 C 160 260, 195 230, 195 190 L 195 90 C 195 50, 160 28, 110 28 Z" fill="none" stroke="#1A1A1A" stroke-width="3"/>
-          <ellipse cx="110" cy="30" rx="36" ry="17" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/>
-          <line x1="85" y1="30" x2="135" y2="30" stroke="#1A1A1A" stroke-width="1.5"/>
-          <line x1="100" y1="22" x2="100" y2="38" stroke="#1A1A1A" stroke-width="1"/>
-          <line x1="110" y1="20" x2="110" y2="40" stroke="#1A1A1A" stroke-width="1"/>
-          <line x1="120" y1="22" x2="120" y2="38" stroke="#1A1A1A" stroke-width="1"/>
-        </svg>
-        <div id="hero-wall-container" style="width: 100%; max-width: 340px; margin-top: -4px;"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOBRE EL PROGRAMA -->
-<section id="programa">
-  <div class="section-inner">
-    <p class="section-eyebrow">Sobre el programa</p>
-    <h2 class="section-title">Mucho más que un viaje</h2>
-    <p class="section-intro">Rugby Inclusivo del San Isidro Club es un espacio donde el deporte se vuelve excusa para algo más grande: construir comunidad, abrir lugares y celebrar la diferencia. Cada sábado, jugadores con distintas discapacidades comparten cancha junto a facilitadores que los acompañan. Hace ya cinco años. Mar del Plata, Rosario, y ahora vamos por Tandil.</p>
-    <div class="pilares">
-      <div class="pilar">
-        <div class="pilar-icon">🏉</div>
-        <h3>Deportivo</h3>
-        <p>Compartimos cancha con otros clubes, defendemos los valores del SIC y creemos que la mayor victoria es que nadie quede afuera.</p>
-      </div>
-      <div class="pilar">
-        <div class="pilar-icon">🤝</div>
-        <h3>Social</h3>
-        <p>El club se vuelve segunda casa: las familias se conocen, los chicos hacen amigos y se arma una comunidad que va mucho más allá del rugby.</p>
-      </div>
-      <div class="pilar">
-        <div class="pilar-icon">💪</div>
-        <h3>Formativo</h3>
-        <p>Cada sábado se gana algo nuevo. Autonomía, responsabilidad grupal y la confianza de animarse a más de lo que uno creía posible.</p>
-      </div>
+      <img src="logo.png" alt="Escudo ZanjerosMix" class="hero-logo" />
     </div>
   </div>
 </section>
@@ -767,52 +763,59 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
   <div class="section-inner">
     <div class="gira-content">
       <div>
-        <p class="section-eyebrow">La gira</p>
-        <h2 class="section-title">Tandil 2026</h2>
-        <p class="section-intro">Tres días de actividades deportivas, convivencia y experiencias que cambian vidas. Nos recibe Uncas Rugby Club y nos alojamos en Villa Pinar de las Sierras, un predio privado de 7 hectáreas.</p>
+        <p class="section-eyebrow">16 al 18 de octubre · Tandil, Buenos Aires</p>
+        <h2 class="section-title">Tres días para volver con una historia más.</h2>
+        <p class="section-intro">Una gira deportiva y de pertenencia. Compartimos cancha con <strong>Uncas Rugby Club</strong>, dormimos en <strong>Villa Pinar de las Sierras</strong> y conocemos el <strong>Cerro El Centinela</strong> y la ciudad de Tandil.</p>
+        <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 14px; align-items: flex-start;">
+            <div style="background: var(--cyan); color: white; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 6px; min-width: 88px; text-align: center;">Vie 16</div>
+            <p style="font-size: 14px; line-height: 1.5; color: var(--text-muted); margin: 0;">Viajamos al mediodía · llegada por la tarde a Villa Pinar · cena de bienvenida.</p>
+          </div>
+          <div style="display: flex; gap: 14px; align-items: flex-start;">
+            <div style="background: var(--cyan); color: white; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 6px; min-width: 88px; text-align: center;">Sáb 17</div>
+            <p style="font-size: 14px; line-height: 1.5; color: var(--text-muted); margin: 0;">Encuentro deportivo con Uncas · tercer tiempo · caminata por el Cerro Centinela · cena de cierre.</p>
+          </div>
+          <div style="display: flex; gap: 14px; align-items: flex-start;">
+            <div style="background: var(--cyan); color: white; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 6px; min-width: 88px; text-align: center;">Dom 18</div>
+            <p style="font-size: 14px; line-height: 1.5; color: var(--text-muted); margin: 0;">Desayuno · visita a la ciudad de Tandil · regreso a media tarde para festejar el Día de la Madre 💐</p>
+          </div>
+        </div>
       </div>
       <div class="gira-card">
         <div class="gira-info">
           <div class="gira-info-row">
-            <div class="gira-info-icon">📅</div>
-            <div class="gira-info-text">
-              <strong>Fechas</strong>
-              <span>Viernes 16 al domingo 18 de octubre de 2026</span>
-            </div>
-          </div>
-          <div class="gira-info-row">
-            <div class="gira-info-icon">📍</div>
-            <div class="gira-info-text">
-              <strong>Destino</strong>
-              <span>Tandil, Provincia de Buenos Aires</span>
-            </div>
-          </div>
-          <div class="gira-info-row">
             <div class="gira-info-icon">🏠</div>
             <div class="gira-info-text">
               <strong>Alojamiento</strong>
-              <span>Villa Pinar de las Sierras</span>
+              <a href="https://villadelpinartandil.com.ar/" target="_blank" rel="noopener" style="color: var(--cyan);">Villa Pinar de las Sierras →</a>
             </div>
           </div>
           <div class="gira-info-row">
-            <div class="gira-info-icon">🏉</div>
+            <div class="gira-info-icon">🤝</div>
             <div class="gira-info-text">
               <strong>Club anfitrión</strong>
-              <span>Uncas Rugby Club</span>
-            </div>
-          </div>
-          <div class="gira-info-row">
-            <div class="gira-info-icon">🚌</div>
-            <div class="gira-info-text">
-              <strong>Equipo que viaja</strong>
-              <span>23 jugadores + 10 facilitadores</span>
+              <a href="https://www.instagram.com/uncas_inclusivo/" target="_blank" rel="noopener" style="color: var(--cyan);">Uncas Inclusivo →</a>
             </div>
           </div>
           <div class="gira-info-row">
             <div class="gira-info-icon">⛰️</div>
             <div class="gira-info-text">
               <strong>Actividad especial</strong>
-              <span>Operación Cerro El Centinela</span>
+              <a href="https://www.cerroelcentinela.com.ar/" target="_blank" rel="noopener" style="color: var(--cyan);">Cerro El Centinela →</a>
+            </div>
+          </div>
+          <div class="gira-info-row">
+            <div class="gira-info-icon">🚌</div>
+            <div class="gira-info-text">
+              <strong>Transporte</strong>
+              <span>Micro privado SIC</span>
+            </div>
+          </div>
+          <div class="gira-info-row">
+            <div class="gira-info-icon">👥</div>
+            <div class="gira-info-text">
+              <strong>Equipo</strong>
+              <span>35 jugadores</span>
             </div>
           </div>
         </div>
@@ -821,12 +824,12 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
   </div>
 </section>
 
-<!-- LA CAMPAÑA -->
-<section class="campana-section" id="campana">
+<!-- CÓMO COLABORAR -->
+<section class="campana-section" id="colaborar">
   <div class="section-inner">
-    <p class="section-eyebrow" style="color: var(--cyan);">La campaña</p>
-    <h2 class="section-title">Tres formas de sumarte</h2>
-    <p class="section-intro">Tres tiers para distintas billeteras. Todos suman al mismo objetivo: que ningún jugador quede afuera de la gira.</p>
+    <p class="section-eyebrow" style="color: var(--cyan);">Tres formas de sumarte</p>
+    <h2 class="section-title">Vos elegís cómo.</h2>
+    <p class="section-intro">La campaña se sostiene con aportes de la comunidad — familias, amigos, vecinos, ex-alumnos y empresas. Cada uno desde donde pueda.</p>
 
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 56px;">
       <div style="background: rgba(255, 200, 80, 0.12); border: 1.5px solid #FFCD55; border-radius: 14px; padding: 24px;">
@@ -865,57 +868,73 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
       </div>
     </div>
 
-    <h3 style="font-size: 22px; margin-bottom: 24px; text-align: center;">¿Cómo se hace?</h3>
-    <div class="campana-content">
-      <div class="campana-mecanica">
-        <div class="mecanica-step">
-          <div class="step-num">1</div>
-          <div class="step-text">
-            <strong>Elegís tu tier.</strong>
-            <span>Padrino ($500K), pieza del escudo ($100K) o ladrillo ($25K). O combinás varios.</span>
-          </div>
-        </div>
-        <div class="mecanica-step">
-          <div class="step-num">2</div>
-          <div class="step-text">
-            <strong>Aportás por MercadoPago o transferencia.</strong>
-            <span>Cualquier medio, lo que te quede más cómodo.</span>
-          </div>
-        </div>
-        <div class="mecanica-step">
-          <div class="step-num">3</div>
-          <div class="step-text">
-            <strong>Tu nombre queda visible.</strong>
-            <span>En una pieza del escudo o en la pared zanjera, según el aporte.</span>
-          </div>
-        </div>
-        <div class="mecanica-step">
-          <div class="step-num">4</div>
-          <div class="step-text">
-            <strong>Recibís el certificado.</strong>
-            <span>Por mail/WhatsApp con tu aporte registrado.</span>
-          </div>
-        </div>
+    <div style="text-align: center; margin-top: 12px;">
+      <a href="#" onclick="openModal();return false;" style="display: inline-block; background: var(--cyan); color: white; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px;">Sumate ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE ZANJEROSMIX -->
+<section id="programa">
+  <div class="section-inner">
+    <p class="section-eyebrow">Rugby Inclusivo del San Isidro Club</p>
+    <h2 class="section-title">Hace cinco años que jugamos así.</h2>
+    <p class="section-intro">ZanjerosMix nació en el SIC para que el rugby fuera un espacio de pertenencia para personas con distintas discapacidades. Hoy somos un equipo de <strong>35 jugadores</strong> que comparte cancha cada sábado. La mayor victoria es que nadie quede afuera.</p>
+    <div class="pilares">
+      <div class="pilar">
+        <div class="pilar-icon">🏉</div>
+        <h3>Deportivo</h3>
+        <p>Cada sábado entrenamos juntos. El rugby es la excusa para algo más grande. Defendemos los valores del SIC y compartimos cancha con otros clubes.</p>
       </div>
-      <div class="progress-card">
-        <div class="progress-num" id="progress-num">$0</div>
-        <p class="progress-label">recaudado de $5.000.000</p>
-        <div class="progress-bar">
-          <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
-        </div>
-        <div class="progress-meta">
-          <span id="progress-vendidas">0 padrinos · 0 piezas · 0 ladrillos</span>
-          <span id="progress-pct">0%</span>
-        </div>
-        <a href="#" onclick="openModal();return false;" style="display: block; text-align: center; background: var(--cyan); color: white; padding: 12px; border-radius: 8px; margin-top: 20px; font-weight: 600;">Sumate ahora</a>
+      <div class="pilar">
+        <div class="pilar-icon">🤝</div>
+        <h3>Social</h3>
+        <p>Más que un equipo: encontramos compañeros, amigos y una segunda familia. El club se vuelve segunda casa para los jugadores y para las familias.</p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-icon">💪</div>
+        <h3>Formativo</h3>
+        <p>Crecemos como personas. Cada partido, cada gira, cada tercer tiempo nos enseña algo nuevo. Autonomía, responsabilidad y confianza.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ESCUDO INTERACTIVO -->
-<section id="escudo">
+<!-- CÓMO VA LA CAMPAÑA -->
+<section class="donors-section" id="tablero">
   <div class="section-inner">
+    <p class="section-eyebrow">En vivo</p>
+    <h2 class="section-title">Los que ya se sumaron.</h2>
+    <p class="section-intro">Cada aporte queda registrado. Las piezas se iluminan en el escudo, los ladrillos arman la pared, los padrinos toman su lugar de honor. Esto es lo que vamos construyendo juntos.</p>
+
+    <!-- Stats sin meta de plata -->
+    <div class="tablero-stats">
+      <div class="tablero-stat">
+        <span class="num" id="tablero-aportes">0</span>
+        <span class="label">aportes</span>
+      </div>
+      <div class="tablero-stat">
+        <span class="num" id="tablero-padrinos">0/4</span>
+        <span class="label">padrinos</span>
+      </div>
+      <div class="tablero-stat">
+        <span class="num" id="tablero-piezas">0/30</span>
+        <span class="label">piezas del escudo</span>
+      </div>
+      <div class="tablero-stat">
+        <span class="num" id="tablero-ladrillos">0</span>
+        <span class="label">ladrillos</span>
+      </div>
+    </div>
+
+    <!-- Padrinos -->
+    <h3 style="font-size: 18px; color: var(--navy); margin-top: 56px; margin-bottom: 16px; font-weight: 700;">🛡️ Padrinos zanjeros</h3>
+    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Lugar de honor para las 4 personas o empresas que se animan con el aporte mayor.</p>
+    <div id="padrinos-container" style="margin-bottom: 56px;"></div>
+
+    <!-- Escudo grande + piezas -->
+    <h3 style="font-size: 18px; color: var(--navy); margin-bottom: 16px; font-weight: 700;">🛡️ El escudo de las 30 piezas</h3>
+    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Cada pieza vendida se pinta en el escudo. Pasá el mouse para ver el nombre del donante.</p>
     <div class="escudo-grid">
       <svg class="escudo-svg" viewBox="0 0 220 290" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -937,35 +956,17 @@ footer .hashtag { color: var(--cyan); font-weight: 700; }
         <line x1="120" y1="22" x2="120" y2="38" stroke="#1A1A1A" stroke-width="1"/>
       </svg>
       <div class="escudo-info">
-        <p class="section-eyebrow">El escudo en vivo</p>
-        <h3>Cada pieza es un aporte concreto</h3>
-        <p>Pasá el mouse o tocá las piezas para ver el nombre del donante. Las grises todavía están disponibles. Las negras y celestes son piezas vendidas.</p>
         <div class="escudo-legend">
           <span><span class="dot" style="background: #1A1A1A;"></span>Pieza vendida</span>
           <span><span class="dot" style="background: #1FA9DB;"></span>Banda central</span>
           <span><span class="dot" style="background: #E6E6E6;"></span>Disponible</span>
         </div>
-        <a href="#" onclick="openModal();return false;" style="display: inline-block; background: var(--cyan); color: white; padding: 14px 28px; border-radius: 8px; font-weight: 600;">Comprar mi pieza</a>
+        <div id="donors-container" style="margin-top: 24px;"></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- DONANTES -->
-<section class="donors-section" id="donantes">
-  <div class="section-inner">
-    <p class="section-eyebrow">Lo que se va armando</p>
-    <h2 class="section-title">Los que ya se sumaron</h2>
-    <p class="section-intro">Quienes ya aportaron al escudo zanjero. Gracias por ser parte de esta historia.</p>
-
-    <h3 style="font-size: 18px; color: var(--navy); margin-bottom: 16px; font-weight: 700;">🛡️ Padrinos zanjeros</h3>
-    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Lugar de honor para las 4 personas o empresas que se animan con el aporte mayor.</p>
-    <div id="padrinos-container" style="margin-bottom: 48px;"></div>
-
-    <h3 style="font-size: 18px; color: var(--navy); margin-bottom: 16px; font-weight: 700;">🛡️ Piezas del escudo</h3>
-    <div id="donors-container"></div>
-
-    <h3 style="font-size: 18px; color: var(--navy); margin-top: 48px; margin-bottom: 16px; font-weight: 700;">🧱 La pared zanjera</h3>
+    <!-- Pared -->
+    <h3 style="font-size: 18px; color: var(--navy); margin-top: 56px; margin-bottom: 16px; font-weight: 700;">🧱 La pared zanjera</h3>
     <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Los ladrillos que sostienen el escudo. Sin límite, sin orden — todos al mismo nivel.</p>
     <div id="ladrillos-container"></div>
   </div>
@@ -1089,7 +1090,7 @@ const TOTAL_PADRINOS = 4;
 const PADRINO_VALUE = 500000;
 const PIECE_VALUE = 100000;
 const LADRILLO_VALUE = 25000;
-// Meta total: 4 Padrinos × $500K + 30 piezas × $100K = $5.000.000
+// Meta interna (no se muestra al usuario): 4 Padrinos × $500K + 30 piezas × $100K
 const META_TOTAL = TOTAL_PADRINOS * PADRINO_VALUE + TOTAL_PIECES * PIECE_VALUE;
 const COLS = 5, ROWS = 6;
 const PIECE_W = 34, PIECE_H = 42;
@@ -1353,17 +1354,12 @@ function renderStats() {
   const piecesSold = Object.keys(DONORS.pieces).length;
   const ladrillos = DONORS.ladrillos.length;
   const totalAportes = padrinos + piecesSold + ladrillos;
-  const recaudadoTotal = padrinos * PADRINO_VALUE + piecesSold * PIECE_VALUE + ladrillos * LADRILLO_VALUE;
-  const pct = Math.min(999, Math.round((recaudadoTotal / META_TOTAL) * 100));
-  const recaudadoStr = '$' + recaudadoTotal.toLocaleString('es-AR');
 
-  document.getElementById('hero-vendidas').textContent = totalAportes;
-  document.getElementById('hero-recaudado').textContent = recaudadoStr;
-  document.getElementById('hero-pct').textContent = pct + '%';
-  document.getElementById('progress-num').textContent = recaudadoStr;
-  document.getElementById('progress-vendidas').textContent = padrinos + ' padrinos · ' + piecesSold + ' piezas · ' + ladrillos + ' ladrillos';
-  document.getElementById('progress-pct').textContent = pct + '%';
-  document.getElementById('progress-fill').style.width = Math.min(100, pct) + '%';
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  set('tablero-aportes', totalAportes);
+  set('tablero-padrinos', padrinos + '/' + TOTAL_PADRINOS);
+  set('tablero-piezas', piecesSold + '/' + TOTAL_PIECES);
+  set('tablero-ladrillos', ladrillos);
 }
 
 function pickTier(tier) {
@@ -1419,9 +1415,7 @@ function handleContactSubmit(e) {
 
 // === Re-render completo después de cargar datos nuevos ===
 function renderAll() {
-  renderShield('hero', 'hero-pieces', 'hero-zanjeros', 'hero-mix');
   renderShield('main', 'main-pieces', 'main-zanjeros', 'main-mix');
-  renderHeroWall();
   renderPadrinos();
   renderDonors();
   renderStats();
